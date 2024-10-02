@@ -1,6 +1,6 @@
 ﻿namespace Mini_Kindle
 {
-    partial class Form1
+    partial class LibraryView
     {
         /// <summary>
         ///  Required designer variable.
