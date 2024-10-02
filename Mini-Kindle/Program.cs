@@ -2,9 +2,8 @@ namespace Mini_Kindle
 {
     public delegate void SyncLibrary();
     public delegate void GetBooks();
-    public delegate void ToggleBookmark(int page);
     public delegate void OpenBook(Book book);
-    public delegate void ChangePage(int page);
+
     internal static class Program
     {
         /// <summary>
@@ -21,7 +20,15 @@ namespace Mini_Kindle
             LibraryController lc = new LibraryController(l);
             BookController bc = new BookController();
 
-            Application.Run(new LibraryView());
+            LibraryView libraryView = new LibraryView();
+
+            libraryView.SetLibrary(l);
+            libraryView.SetOpenBookDelegate(bc.OpenBook);
+            libraryView.SetGetBooksDelegate(lc.SyncLibrary);
+
+            libraryView.RefreshBooks();
+
+            Application.Run(libraryView);
         }
     }
 }

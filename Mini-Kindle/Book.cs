@@ -8,19 +8,29 @@ namespace Mini_Kindle
 {
     public class Book
     {
-        private string _title;
         private string _author;
         private int _pageCount;
-        private List<string> _text;
-        private List<int> _bookmarks;
+        private int _currentPage = 0;
+        public string Title;
+        public List<string> Text;
+        public List<int> Bookmarks;
+
+        public int CurrentPage
+        {
+            get => _currentPage;
+            set
+            {
+                if (value >= 0 && value < _pageCount) _currentPage = value;
+            }
+        }
 
         public Book(string title, string author, List<string> text)
         {
-            _title = title;
+            Title = title;
             _author = author;
-            _text = text;
+            Text = text;
             _pageCount = text.Count;
-            _bookmarks = new List<int>();
+            Bookmarks = new List<int>();
         }
 
         public string GetPage(int page)
@@ -31,26 +41,7 @@ namespace Mini_Kindle
             }
             else
             {
-                return _text[page];
-            }
-        }
-
-        public void ToggleBookmark(int page)
-        {
-            if (page < 0 || page >= _pageCount)
-            {
-                throw new ArgumentOutOfRangeException("Page number is out of range");
-            }
-            else
-            {
-                if (_bookmarks.Contains(page))
-                {
-                    _bookmarks.Remove(page);
-                }
-                else
-                {
-                    _bookmarks.Add(page);
-                }
+                return Text[page];
             }
         }
 
