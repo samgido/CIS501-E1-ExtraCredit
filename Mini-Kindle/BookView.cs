@@ -59,7 +59,7 @@ namespace Mini_Kindle
 
 		private void BookmarkPageButton_Click(object sender, EventArgs e)
 		{
-			this._book.Bookmarks.Add(this._book.CurrentPage);
+			this._book.ToggleBookmark();
 			RefreshPage();
 		}
 	}

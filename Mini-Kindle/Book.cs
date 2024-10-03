@@ -49,5 +49,13 @@ namespace Mini_Kindle
         {
             return _pageCount;
         }
+
+        public void ToggleBookmark()
+        {
+            if (Bookmarks.Contains(this.CurrentPage))
+                Bookmarks.Remove(this.CurrentPage);
+            else
+                Bookmarks.Add(this.CurrentPage);
+        }
     }
 }
