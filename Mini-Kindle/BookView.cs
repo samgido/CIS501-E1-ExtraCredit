@@ -25,6 +25,7 @@ namespace Mini_Kindle
 
 		public void RefreshPage()
 		{
+			this.Text = _book.Title;
 			this.PageTextLabel.Text = _book.Text[_book.CurrentPage];
 			this.PageNumberNumericUpDown.Value = _book.CurrentPage;
 

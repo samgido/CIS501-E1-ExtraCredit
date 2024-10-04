@@ -26,6 +26,7 @@ namespace Mini_Kindle
 
 		public void RefreshBooks()
 		{
+			listView1.Clear();
 			foreach (Book b in _library.GetBooks())
 			{
 				listView1.Items.Add(b.Title);

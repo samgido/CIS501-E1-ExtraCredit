@@ -53,9 +53,13 @@ namespace Mini_Kindle
         public void ToggleBookmark()
         {
             if (Bookmarks.Contains(this.CurrentPage))
+            {
                 Bookmarks.Remove(this.CurrentPage);
-            else
+            }
+            else if (Bookmarks.Count < 5)
+            {
                 Bookmarks.Add(this.CurrentPage);
+            }
         }
     }
 }
